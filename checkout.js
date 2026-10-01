@@ -160,13 +160,43 @@ document.addEventListener('DOMContentLoaded', () => {
         summarySavingsTag.textContent = `-${config.currency || 'RD$'}${currentOffer.savings.toLocaleString('en-US')} (${currentOffer.savingsPercent})`;
         summaryFinalTotal.textContent = `${config.currency || 'RD$'}${currentOffer.price.toLocaleString('en-US')}`;
     }
+    // Simple required-field validation (no format restrictions — any content is accepted)
+    function validateForm() {
+        let isValid = true;
 
+        const fields = [
+            { input: clientNameInput,   errId: 'err-name'    },
+            { input: clientPhoneInput,  errId: 'err-phone'   },
+            { input: clientAddressInput, errId: 'err-address' }
+        ];
+
+        fields.forEach(({ input, errId }) => {
+            const err = document.getElementById(errId);
+            if (!input) return;
+            if (input.value.trim() === '') {
+                if (err) err.style.display = 'block';
+                input.classList.add('input-error');
+                isValid = false;
+            } else {
+                if (err) err.style.display = 'none';
+                input.classList.remove('input-error');
+            }
+        });
+
+        return isValid;
+    }
 
     // Handle Order Submission
     let isSubmitting = false;
 
     function processOrderSubmit() {
         if (isSubmitting) return;
+
+        if (!validateForm()) {
+            const firstError = document.querySelector('.input-error');
+            if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+        }
 
         isSubmitting = true;
         submitOrderButtons.forEach(btn => {

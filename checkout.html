@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es-DO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Finalizar Pedido | Peel Shot Spray Corporal Exfoliante</title>
+    <meta name="description" content="Completa tu pedido de Peel Shot Spray Corporal con pago contra entrega en toda República Dominicana.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Config script -->
+    <script src="config.js"></script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        (function() {
+            const pixelId = (typeof CONFIG !== 'undefined' && CONFIG.pixelId) ? CONFIG.pixelId : '1806304374058727';
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return; n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                n.queue = []; t = b.createElement(e); t.async = !0;
+                t.src = v; s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', pixelId);
+            fbq('track', 'PageView');
+            fbq('track', 'InitiateCheckout', {
+                content_name: 'Peel Shot Spray',
+                content_type: 'product',
+                currency: 'DOP',
+                value: 2490
+            });
+        })();
+    </script>
+</head>
+
+<body class="checkout-page">
+
+    <!-- Header Navigation Bar -->
+    <header class="checkout-header">
+        <a href="index.html" class="back-link">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Volver a la tienda
+        </a>
+        <div class="checkout-logo">PEEL SHOT</div>
+        <div class="secure-badge-header">
+            🔒 Checkout Seguro
+        </div>
+    </header>
+
+    <!-- Top Notice Bar -->
+    <div class="top-bar" style="background-color: var(--gold-primary); font-size: 13px; font-weight: 600;">
+        📦 Pago Contra Entrega — Pagas en efectivo al recibir tu paquete 🚚
+    </div>
+
+    <main class="checkout-container">
+
+        <!-- Product Summary Bar -->
+        <section class="checkout-product-preview">
+            <div class="checkout-product-thumb">
+                <img src="producto/peel_shot_hero.jpg" alt="Peel Shot Spray" id="checkout-prod-img"
+                    onerror="this.src='producto/peel_shot_product.png';">
+            </div>
+            <div class="checkout-product-info">
+                <span class="product-category">Skincare / Cuidado Corporal</span>
+                <h1 class="checkout-product-title" id="checkout-prod-title">Peel Shot — Spray Renovador de Tono</h1>
+                <div class="product-rating">
+                    <span class="stars">★★★★★</span>
+                    <span>4.9 / 5.0 (Compradores verificados)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Grid Layout -->
+        <div class="checkout-grid">
+
+            <!-- Left Column: Offer Selector & Form -->
+            <div class="checkout-main">
+
+                <!-- 1. Offer Selector Section -->
+                <section class="checkout-card" id="oferta">
+                    <h2 class="checkout-step-title">
+                        <span class="step-num">1</span>
+                        Selecciona tu Oferta
+                    </h2>
+
+                    <div class="offers-section" id="checkout-offers-container" style="padding-top: 0;">
+                        <!-- Offers will be rendered dynamically from config.js -->
+                    </div>
+                </section>
+
+                <!-- Oferta seleccionada (compacto, visible después de elegir) -->
+                <div class="selected-offer-bar" id="selected-offer-bar" style="display:none;">
+                    <span class="selected-offer-icon">✅</span>
+                    <span id="selected-offer-summary-text">2 Unidades — RD$2,490 · Envío GRATIS</span>
+                    <button type="button" class="change-offer-btn" id="btn-change-offer">Cambiar</button>
+                </div>
+
+                <!-- 2. Delivery & Customer Information Form -->
+                <section class="checkout-card" id="datos-form">
+                    <div class="form-header-row">
+                        <h2 class="checkout-step-title" style="margin:0;">
+                            <span class="step-num">2</span>
+                            Datos para la Entrega
+                        </h2>
+                        <a href="index.html" class="form-close-btn" title="Volver a la tienda" aria-label="Cerrar formulario">&times;</a>
+                    </div>
+                    <p class="checkout-subtitle">Ingresa tus datos para coordinar el envío contra entrega por WhatsApp.</p>
+
+                    <form id="checkout-form" novalidate>
+                        <input type="hidden" id="selected-offer-id" value="2">
+                        <input type="hidden" id="selected-qty" value="2">
+                        <input type="hidden" id="selected-total" value="2490">
+
+                        <div class="form-group">
+                            <label class="form-label" for="client-name">👤 Nombre y Apellido</label>
+                            <input type="text" id="client-name" class="form-control" placeholder="Ej. María Pérez">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="client-phone">📱 Teléfono / WhatsApp</label>
+                            <input type="tel" id="client-phone" class="form-control" placeholder="Ej. 809-555-0199">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="client-address">📍 Dirección de Entrega</label>
+                            <input type="text" id="client-address" class="form-control" placeholder="Ciudad, Sector, Calle, Nº de Casa o Referencia">
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="form-label" for="client-qty-select">📦 Cantidad Seleccionada</label>
+                            <select id="client-qty-select" class="form-control">
+                                <option value="1">1 Unidad — RD$1,720</option>
+                                <option value="2" selected>2 Unidades — RD$2,490 (Envío Gratis)</option>
+                            </select>
+                        </div>
+
+                        <!-- Direct Form Action Button for Mobile & Desktop -->
+                        <div class="form-submit-container">
+                            <button type="button" class="btn btn-whatsapp-order btn-submit-order">
+                                <svg viewBox="0 0 24 24" class="wa-icon">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg>
+                                <span>CONFIRMAR PEDIDO POR WHATSAPP</span>
+                            </button>
+                            <p class="order-guarantee-note mt-2">
+                                ⚡ Se abrirá WhatsApp con los detalles de tu pedido para confirmar la entrega.
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Right Column: Order Summary Sticky Box -->
+            <div class="checkout-sidebar">
+                <div class="checkout-card order-summary-card">
+                    <h3 class="summary-title">Resumen del Pedido</h3>
+                    
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span class="item-name" id="summary-prod-name">Peel Shot Spray Corporal</span>
+                            <span class="item-qty" id="summary-qty-badge">x2</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="summary-old-total">RD$4,780</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Envío</span>
+                            <span class="text-gold" id="summary-shipping-text">GRATIS</span>
+                        </div>
+                        <div class="summary-row discount-row">
+                            <span>Descuento / Ahorro</span>
+                            <span class="discount-tag" id="summary-savings-tag">-RD$2,290 (48% OFF)</span>
+                        </div>
+                        
+                        <div class="summary-divider"></div>
+                        
+                        <div class="summary-total-row">
+                            <span>Total a pagar</span>
+                            <span class="total-amount" id="summary-final-total">RD$2,490</span>
+                        </div>
+                        <div class="summary-payment-mode">
+                            💵 Método de pago: <strong>Pago contra entrega en efectivo</strong>
+                        </div>
+                    </div>
+
+                    <!-- Action Button in Summary -->
+                    <button type="button" class="btn btn-whatsapp-order btn-submit-order mt-3">
+                        <svg viewBox="0 0 24 24" class="wa-icon">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        <span>CONFIRMAR PEDIDO</span>
+                    </button>
+
+                    <!-- Trust Badges -->
+                    <div class="security-badges mt-3">
+                        <span class="security-badge">🔒 Datos Encriptados</span>
+                        <span class="security-badge">💵 Pago Contra Entrega</span>
+                        <span class="security-badge">💯 Garantía de Calidad</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer mt-4">
+        <div class="container text-center">
+            <p class="footer-brand">PEEL SHOT</p>
+        </div>
+    </footer>
+
+    <!-- Checkout Logic -->
+    <script src="checkout.js"></script>
+
+</body>
+
+</html>
